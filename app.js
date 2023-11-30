@@ -84,254 +84,288 @@ function getStarRating(stars) {
   return starRating;
 }
 
-allRadioButton.addEventListener("change", async () => {
-  if (allRadioButton.checked) {
-    const products = await fetchAllProduct();
-    tbody.innerHTML = '';
-    products.forEach((item) => {
-      const str = renderProduct(item);
-      tbody.innerHTML += str;
-    });
-  }
+// allRadioButton.addEventListener("change", async () => {
+//   if (allRadioButton.checked) {
+//     const products = await fetchAllProduct();
+//     tbody.innerHTML = '';
+//     products.forEach((item) => {
+//       const str = renderProduct(item);
+//       tbody.innerHTML += str;
+//     });
+//   }
   
-});
-
-sneakersRadioButton.addEventListener("change", async () => {
-  if (sneakersRadioButton.checked) {
-      const products = await fetchAllProduct();
-      const sneakersData = products.filter(
-        (item) => item.category === "sneakers"
-      );
-     
-      tbody.innerHTML = '';
-      sneakersData.forEach((item) => {
-        const str = renderProduct(item);
-        tbody.innerHTML += str;
-      });
-  }
-});
+// });
 
 // sneakersRadioButton.addEventListener("change", async () => {
 //   if (sneakersRadioButton.checked) {
+//       const products = await fetchAllProduct();
+//       const sneakersData = products.filter(
+//         (item) => item.category === "sneakers"
+//       );
+     
+//       tbody.innerHTML = '';
+//       sneakersData.forEach((item) => {
+//         const str = renderProduct(item);
+//         tbody.innerHTML += str;
+//       });
+//   }
+// });
+
+
+// flatsRadioButton.addEventListener("change", async () =>{
+//   if(flatsRadioButton.checked){
+//     const product = await fetchAllProduct();
+//     const flatsData=product.filter(
+//       (item) => item.category === "flats"
+//     );
+
+//     tbody.innerHTML='';
+//     flatsData.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// sandalsRadioButton.addEventListener("change", async () =>{
+//   if(sandalsRadioButton.checked){
+//     const product = await fetchAllProduct();
+//     const sandalsData=product.filter(
+//       (item) => item.category === "sandals"
+//     );
+
+//     tbody.innerHTML='';
+//     sandalsData.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// hellsRadioButton.addEventListener("change", async () =>{
+//   if(hellsRadioButton.checked){
+//     const product = await fetchAllProduct();
+//     const hellsData=product.filter(
+//       (item) => item.category === "hells"
+//     );
+
+//     tbody.innerHTML='';
+//     hellsData.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// price_0.addEventListener("change", async () => {
+//   if (price_0.checked) {
 //     const products = await fetchAllProduct();
-
-//     // Lọc theo category "sneakers"
-//     const sneakersData = products.filter((item) => item.category === "sneakers");
-
-//     // Lấy giá trị của radio button giá và màu
-//     const selectedPrice = document.querySelector('input[name="price"]:checked').value;
-//     const selectedColor = document.querySelector('input[name="color"]:checked').value;
-
-//     // Lọc dữ liệu theo giá và màu (nếu được chọn)
-//     const filteredData = sneakersData.filter((item) => {
-//       if (selectedPrice && item.newPrice < selectedPrice) {
-//         return false;
-//       }
-//       if (selectedColor && item.color !== selectedColor) {
-//         return false;
-//       }
-//       return true;
-//     });
-// console.log(filteredData);
-//     // Hiển thị dữ liệu lọc
 //     tbody.innerHTML = '';
-//     filteredData.forEach((item) => {
+//     products.forEach((item) => {
 //       const str = renderProduct(item);
 //       tbody.innerHTML += str;
 //     });
 //   }
 // });
 
-flatsRadioButton.addEventListener("change", async () =>{
-  if(flatsRadioButton.checked){
-    const product = await fetchAllProduct();
-    const flatsData=product.filter(
-      (item) => item.category === "flats"
-    );
+// price_1.addEventListener("change", async () =>{
+//   if(price_1.checked){
+//     const product = await fetchAllProduct();
+//     const price = product.filter((item) => item.newPrice >= 0 && item.newPrice <= 50);
+// console.log(price);
+//     tbody.innerHTML='';
+//     price.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
 
-    tbody.innerHTML='';
-    flatsData.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
+// price_1.addEventListener("change", async () =>{
+//   if(price_1.checked){
+//     const product = await fetchAllProduct();
+//     const price = product.filter((item) => item.newPrice >= 0 && item.newPrice <= 50);
+//     tbody.innerHTML='';
+//     price.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+// price_2.addEventListener("change", async () =>{
+//   if(price_2.checked){
+//     const product = await fetchAllProduct();
+//     const price = product.filter((item) => item.newPrice >= 50 && item.newPrice <= 100);
+//     tbody.innerHTML='';
+//     price.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// price_3.addEventListener("change", async () =>{
+//   if(price_3.checked){
+//     const product = await fetchAllProduct();
+//     const price = product.filter((item) => item.newPrice >= 100 && item.newPrice <= 150);
+//     tbody.innerHTML='';
+//     price.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// price_4.addEventListener("change", async () =>{
+//   if(price_4.checked){
+//     const product = await fetchAllProduct();
+//     const price = product.filter((item) => item.newPrice >= 150);
+//     tbody.innerHTML='';
+//     price.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// color_0.addEventListener("change", async () => {
+//   if (color_0.checked) {
+//     const products = await fetchAllProduct();
+//     tbody.innerHTML = '';
+//     products.forEach((item) => {
+//       const str = renderProduct(item);
+//       tbody.innerHTML += str;
+//     });
+//   }
+// });
+
+// color_1.addEventListener("change", async () =>{
+//   if(color_1.checked){
+//     const product = await fetchAllProduct();
+//     const color = product.filter((item) => item.color === "black");
+//     tbody.innerHTML='';
+//     color.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+
+// color_2.addEventListener("change", async () =>{
+//   if(color_2.checked){
+//     const product = await fetchAllProduct();
+//     const color = product.filter((item) => item.color === "blue");
+//     tbody.innerHTML='';
+//     color.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// color_3.addEventListener("change", async () =>{
+//   if(color_3.checked){
+//     const product = await fetchAllProduct();
+//     const color = product.filter((item) => item.color === "red");
+//     tbody.innerHTML='';
+//     color.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// color_4.addEventListener("change", async () =>{
+//   if(color_4.checked){
+//     const product = await fetchAllProduct();
+//     const color = product.filter((item) => item.color === "green");
+//     tbody.innerHTML='';
+//     color.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+// color_5.addEventListener("change", async () =>{
+//   if(color_5.checked){
+//     const product = await fetchAllProduct();
+//     const color = product.filter((item) => item.color === "white");
+//     tbody.innerHTML='';
+//     color.forEach((item)=>{
+//       const str = renderProduct(item);
+//       tbody.innerHTML+=str;
+//     })
+//   }
+// })
+
+allRadioButton.addEventListener("change",filterProducts);
+sneakersRadioButton.addEventListener("change", filterProducts);
+sandalsRadioButton.addEventListener("change",filterProducts);
+flatsRadioButton.addEventListener("change",filterProducts);
+hellsRadioButton.addEventListener("change",filterProducts);
+price_0.addEventListener("change", filterProducts);
+price_1.addEventListener("change", filterProducts);
+price_2.addEventListener("change", filterProducts);
+price_3.addEventListener("change", filterProducts);
+price_4.addEventListener("change", filterProducts);
+color_0.addEventListener("change", filterProducts);
+color_1.addEventListener("change", filterProducts);
+color_2.addEventListener("change", filterProducts);
+color_3.addEventListener("change", filterProducts);
+color_4.addEventListener("change", filterProducts);
+color_5.addEventListener("change", filterProducts);
+
+async function filterProducts() {
+  const category = sneakersRadioButton.checked;
+  const price = getPriceOption();
+  const color = getColorOption();
+
+  const products = await fetchAllProduct();
+  let filteredData = products;
+
+  if (category) {
+    filteredData = filteredData.filter((item) => item.category === "sneakers");
   }
-})
 
-sandalsRadioButton.addEventListener("change", async () =>{
-  if(sandalsRadioButton.checked){
-    const product = await fetchAllProduct();
-    const sandalsData=product.filter(
-      (item) => item.category === "sandals"
-    );
-
-    tbody.innerHTML='';
-    sandalsData.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
+  if (price) {
+    if (Array.isArray(price)) {
+      filteredData = filteredData.filter((item) => item.newPrice >= price[0] && item.newPrice <= price[1]);
+    } else {
+      filteredData = filteredData.filter((item) => item.newPrice >= price);
+    }
   }
-})
 
-hellsRadioButton.addEventListener("change", async () =>{
-  if(hellsRadioButton.checked){
-    const product = await fetchAllProduct();
-    const hellsData=product.filter(
-      (item) => item.category === "hells"
-    );
-
-    tbody.innerHTML='';
-    hellsData.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
+  if (color) {
+    filteredData = filteredData.filter((item) => item.color === color);
   }
-})
 
-price_0.addEventListener("change", async () => {
-  if (price_0.checked) {
-    const products = await fetchAllProduct();
-    tbody.innerHTML = '';
-    products.forEach((item) => {
-      const str = renderProduct(item);
-      tbody.innerHTML += str;
-    });
-  }
-});
+  tbody.innerHTML = '';
+  filteredData.forEach((item) => {
+    const str = renderProduct(item);
+    tbody.innerHTML += str;
+  });
+}
 
-price_1.addEventListener("change", async () =>{
-  if(price_1.checked){
-    const product = await fetchAllProduct();
-    const price = product.filter((item) => item.newPrice >= 0 && item.newPrice <= 50);
-console.log(price);
-    tbody.innerHTML='';
-    price.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-price_1.addEventListener("change", async () =>{
-  if(price_1.checked){
-    const product = await fetchAllProduct();
-    const price = product.filter((item) => item.newPrice >= 0 && item.newPrice <= 50);
-    tbody.innerHTML='';
-    price.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-price_2.addEventListener("change", async () =>{
-  if(price_2.checked){
-    const product = await fetchAllProduct();
-    const price = product.filter((item) => item.newPrice >= 50 && item.newPrice <= 100);
-    tbody.innerHTML='';
-    price.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-price_3.addEventListener("change", async () =>{
-  if(price_3.checked){
-    const product = await fetchAllProduct();
-    const price = product.filter((item) => item.newPrice >= 100 && item.newPrice <= 150);
-    tbody.innerHTML='';
-    price.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-price_4.addEventListener("change", async () =>{
-  if(price_4.checked){
-    const product = await fetchAllProduct();
-    const price = product.filter((item) => item.newPrice >= 150);
-    tbody.innerHTML='';
-    price.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-color_0.addEventListener("change", async () => {
+function getColorOption() {
   if (color_0.checked) {
-    const products = await fetchAllProduct();
-    tbody.innerHTML = '';
-    products.forEach((item) => {
-      const str = renderProduct(item);
-      tbody.innerHTML += str;
-    });
+    return null;
+  } else if (color_1.checked) {
+    return "black";
   }
-});
+  
+}
 
-color_1.addEventListener("change", async () =>{
-  if(color_1.checked){
-    const product = await fetchAllProduct();
-    const color = product.filter((item) => item.color === "black");
-    tbody.innerHTML='';
-    color.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-
-color_2.addEventListener("change", async () =>{
-  if(color_2.checked){
-    const product = await fetchAllProduct();
-    const color = product.filter((item) => item.color === "blue");
-    tbody.innerHTML='';
-    color.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-color_3.addEventListener("change", async () =>{
-  if(color_3.checked){
-    const product = await fetchAllProduct();
-    const color = product.filter((item) => item.color === "red");
-    tbody.innerHTML='';
-    color.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-color_4.addEventListener("change", async () =>{
-  if(color_4.checked){
-    const product = await fetchAllProduct();
-    const color = product.filter((item) => item.color === "green");
-    tbody.innerHTML='';
-    color.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-color_5.addEventListener("change", async () =>{
-  if(color_5.checked){
-    const product = await fetchAllProduct();
-    const color = product.filter((item) => item.color === "white");
-    tbody.innerHTML='';
-    color.forEach((item)=>{
-      const str = renderProduct(item);
-      tbody.innerHTML+=str;
-    })
-  }
-})
-
-
-
-
+function getPriceOption() {
+  if (price_0.checked) {
+    return null; 
+  } else if (price_1.checked) {
+    return [0, 50]; 
+  } else if (price_2.checked) {
+    return [50, 100]; 
+  }s
+ 
+}
 
 getAllProduct();
