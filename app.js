@@ -318,7 +318,7 @@ color_4.addEventListener("change", filterProducts);
 color_5.addEventListener("change", filterProducts);
 
 async function filterProducts() {
-  const category = sneakersRadioButton.checked;
+  const category = getCategoryOption();
   const price = getPriceOption();
   const color = getColorOption();
 
@@ -326,12 +326,12 @@ async function filterProducts() {
   let filteredData = products;
 
   if (category) {
-    filteredData = filteredData.filter((item) => item.category === "sneakers");
+    filteredData = filteredData.filter((item) => item.category === category);
   }
 
   if (price) {
     if (Array.isArray(price)) {
-      filteredData = filteredData.filter((item) => item.newPrice >= price[0] && item.newPrice <= price[1]);
+      filteredData = filteredData.filter((item) => item.newPrice >= price[0] && item.newPrice < price[1]);
     } else {
       filteredData = filteredData.filter((item) => item.newPrice >= price);
     }
@@ -348,11 +348,33 @@ async function filterProducts() {
   });
 }
 
+function getCategoryOption(){
+  if(allRadioButton.checked){
+    return null;
+  }else if(sneakersRadioButton.checked){
+    return "sneakers";
+  }else if(sandalsRadioButton.checked){
+    return "sandals"
+  }else if(flatsRadioButton.checked){
+    return "flats"
+  }else if(hellsRadioButton.checked){
+    return "hells"
+  }
+}
+
 function getColorOption() {
   if (color_0.checked) {
     return null;
   } else if (color_1.checked) {
     return "black";
+  }else if (color_2.checked) {
+    return "blue";
+  }else if (color_3.checked) {
+    return "red";
+  }else if (color_4.checked) {
+    return "green";
+  }else if (color_5.checked) {
+    return "white";
   }
   
 }
@@ -364,7 +386,11 @@ function getPriceOption() {
     return [0, 50]; 
   } else if (price_2.checked) {
     return [50, 100]; 
-  }s
+  }else if (price_3.checked) {
+    return [100, 150]; 
+  }else if (price_4.checked) {
+    return [150, 500]; 
+  }
  
 }
 
